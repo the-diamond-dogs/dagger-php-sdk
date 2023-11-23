@@ -1,0 +1,33 @@
+<?php
+
+namespace DaggerIo\Codegen\Introspection;
+
+use DaggerIo\Client\DaggerId;
+use DaggerIo\Client\DaggerScalar;
+use GraphQL\Type\Definition\ScalarType;
+use GraphQL\Type\Definition\Type;
+use Nette\PhpGenerator\ClassType;
+use Nette\PhpGenerator\EnumType;
+use TypeError;
+
+class ScalarVisitor extends AbstractVisitor
+{
+    public function generateType(Type $type): EnumType|ClassType
+    {
+        $type instanceof ScalarType ?? throw new TypeError();
+        $typeName = $type->name;
+        $phpClassName = Helpers::formatPhpClassName($typeName);
+
+        $scalarClass = new ClassType($phpClassName);
+        $scalarClass->setReadOnly(true);
+        $scalarClass->addComment($type->description);
+
+        if (str_ends_with($typeName, 'ID')) {
+            $scalarClass->setExtends(DaggerId::class);
+        } else {
+            $scalarClass->setExtends(DaggerScalar::class);
+        }
+
+        return $scalarClass;
+    }
+}
