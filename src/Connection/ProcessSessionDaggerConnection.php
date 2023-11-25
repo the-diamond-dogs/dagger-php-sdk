@@ -48,9 +48,9 @@ class ProcessSessionDaggerConnection extends DaggerConnection implements LoggerA
         $process->waitUntil(function ($type, $output) use (&$sessionInformation) {
             $this->logger->debug($output);
             if (Process::OUT === $type) {
-                if (str_contains($output, 'session_token')) {
+                if (str_contains((string) $output, 'session_token')) {
                     // @TODO Rewrite when PHP 8.3 json_validate is available
-                    $lines = explode("\n", $output);
+                    $lines = explode("\n", (string) $output);
                     $validLines = array_filter($lines, function ($line) {
                         $this->logger->debug($line);
                         json_decode(trim($line));

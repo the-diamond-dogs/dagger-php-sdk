@@ -8,6 +8,7 @@ use DaggerIo\Connection\EnvSessionDaggerConnection;
 use DaggerIo\Connection\ProcessSessionDaggerConnection;
 use DaggerIo\Gen\DaggerClient;
 use GraphQL\Client;
+use InvalidArgumentException;
 
 abstract class DaggerConnection
 {
@@ -24,12 +25,11 @@ abstract class DaggerConnection
 
     public static function newEnvSession(): EnvSessionDaggerConnection
     {
-
         $port = getenv('DAGGER_SESSION_PORT');
         $token = getenv('DAGGER_SESSIon_TOKEN');
 
         if (false === $port || false === $token) {
-            throw new \InvalidArgumentException('Missing env var "DAGGER_SESSION_*"');
+            throw new InvalidArgumentException('Missing env var "DAGGER_SESSION_*"');
         }
 
         return new EnvSessionDaggerConnection(

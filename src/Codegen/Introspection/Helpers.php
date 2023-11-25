@@ -34,18 +34,14 @@ class Helpers
 
     public static function formatType(Type|NamedType $type): string
     {
+        $typeName = null;
+
         if ($type instanceof NonNull) {
             return static::formatType($type->getWrappedType());
         }
 
         if ($type instanceof ListOfType) {
             return 'array';
-        }
-
-        $typeName = $type->name;
-
-        if ('Query' === $typeName) {
-            return 'DaggerClient';
         }
 
         if ($type instanceof ScalarType) {
@@ -61,6 +57,10 @@ class Helpers
             }
         }
 
+        if ($type instanceof NamedType) {
+            $typeName = $type->name();
+        }
+
         if ($type instanceof EnumType) {
             return Helpers::formatPhpClassName($typeName);
         }
@@ -70,6 +70,10 @@ class Helpers
         }
 
         if ($type instanceof ObjectType) {
+            if ('Query' === $typeName) {
+                return 'DaggerClient';
+            }
+
             return Helpers::formatPhpClassName($typeName);
         }
 

@@ -20,7 +20,9 @@ class ObjectVisitor extends AbstractVisitor
 {
     public function generateType(Type $type): EnumType|ClassType
     {
-        $type instanceof ObjectType ?? throw new TypeError();
+        if (!$type instanceof ObjectType) {
+            throw new TypeError('ObjectVisitor can only generate from ObjectType');
+        }
 
         $parentClass = 'Query' === $type->name ? AbstractDaggerClient::class : AbstractDaggerObject::class;
         $className = 'Query' === $type->name ? 'DaggerClient' : $type->name;

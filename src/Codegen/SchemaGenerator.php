@@ -6,12 +6,12 @@ use GraphQL\Client;
 use GraphQL\Type\Schema;
 use GraphQL\Utils\BuildClientSchema;
 
-readonly class SchemaGenerator
+class SchemaGenerator
 {
     private array $schemaArray;
     private Schema $schema;
 
-    public function __construct(private Client $client)
+    public function __construct(private readonly Client $client)
     {
         $this->update();
     }

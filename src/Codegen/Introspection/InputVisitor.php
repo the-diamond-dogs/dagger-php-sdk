@@ -13,7 +13,10 @@ class InputVisitor extends AbstractVisitor
 {
     public function generateType(Type $type): EnumType|ClassType
     {
-        $type instanceof InputObjectType ?? throw new TypeError();
+        if (!$type instanceof InputObjectType) {
+            throw new TypeError('InputVisitor can only generate from InputObjectType');
+        }
+
         $typeName = $type->name;
 
         $phpClassName = Helpers::formatPhpClassName($typeName);

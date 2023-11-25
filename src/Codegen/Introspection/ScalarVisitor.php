@@ -14,7 +14,10 @@ class ScalarVisitor extends AbstractVisitor
 {
     public function generateType(Type $type): EnumType|ClassType
     {
-        $type instanceof ScalarType ?? throw new TypeError();
+        if (!$type instanceof ScalarType) {
+            throw new TypeError('ScalarVisitor can only generate from ScalarType');
+        }
+
         $typeName = $type->name;
         $phpClassName = Helpers::formatPhpClassName($typeName);
 

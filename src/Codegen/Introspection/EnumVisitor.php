@@ -11,7 +11,9 @@ class EnumVisitor extends AbstractVisitor
 {
     public function generateType(Type $type): EnumType|ClassType
     {
-        $type instanceof \GraphQL\Type\Definition\EnumType ?? throw new TypeError();
+        if (!$type instanceof \GraphQL\Type\Definition\EnumType) {
+            throw new TypeError('EnumVisitor can only generate from EnumType');
+        }
 
         $enumClass = new EnumType(Helpers::formatPhpClassName($type->name));
         $enumClass->setType('string');
