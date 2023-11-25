@@ -5,6 +5,7 @@ namespace DaggerIo\Codegen;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\EnumType;
 use Nette\PhpGenerator\PhpFile;
+use Nette\PhpGenerator\PsrPrinter;
 
 class CodeWriter
 {
@@ -26,6 +27,8 @@ class CodeWriter
            $classType->getName().'.php',
         ]);
 
-        file_put_contents($filePath, $phpFile);
+        $printer = new PsrPrinter();
+
+        file_put_contents($filePath, $printer->printFile($phpFile));
     }
 }
