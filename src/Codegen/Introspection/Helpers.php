@@ -126,4 +126,11 @@ class Helpers
             ? $type->getWrappedType() instanceof ScalarType
             : $type instanceof ScalarType;
     }
+
+    public static function isList(Type $type): bool
+    {
+        return $type instanceof NonNull
+            ? $type->getWrappedType() instanceof ListOfType
+            : $type instanceof ListOfType;
+    }
 }

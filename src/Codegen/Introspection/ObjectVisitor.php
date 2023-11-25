@@ -57,7 +57,7 @@ class ObjectVisitor extends AbstractVisitor
                 $this->generateMethodArgument($arg, $method);
             }
 
-            if (Helpers::isScalar($returnType)) {
+            if (Helpers::isScalar($returnType) || Helpers::isList($returnType)) {
                 $method->addBody('$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder(?);', [$fieldName]);
                 $this->generateMethodArgumentsBody($method, $field->args, 'leafQueryBuilder');
                 if (Helpers::isCustomScalar($returnType)) {
