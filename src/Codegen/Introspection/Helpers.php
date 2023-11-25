@@ -133,4 +133,11 @@ class Helpers
             ? $type->getWrappedType() instanceof ListOfType
             : $type instanceof ListOfType;
     }
+
+    public static function isEnumType(Type $type): bool
+    {
+        return $type instanceof NonNull
+            ? $type->getWrappedType() instanceof EnumType
+            : $type instanceof EnumType;
+    }
 }
