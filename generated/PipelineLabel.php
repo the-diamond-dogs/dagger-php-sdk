@@ -13,9 +13,9 @@ namespace DaggerIo\Gen;
  */
 class PipelineLabel extends \DaggerIo\Client\AbstractDaggerInputObject
 {
-	public function __construct(
-		public string $name,
-		public string $value,
-	) {
-	}
+    public function __construct(
+        public string $name,
+        public string $value,
+    ) {
+    }
 }

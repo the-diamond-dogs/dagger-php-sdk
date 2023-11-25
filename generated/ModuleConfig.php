@@ -13,62 +13,57 @@ namespace DaggerIo\Gen;
  */
 class ModuleConfig extends \DaggerIo\Client\AbstractDaggerObject
 {
-	/**
-	 * Modules that this module depends on.
-	 */
-	public function dependencies(): array
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('dependencies');
-		return new \DaggerIo\Gen\array($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * Modules that this module depends on.
+     */
+    public function dependencies(): array
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('dependencies');
+        return $this->queryLeaf($leafQueryBuilder, 'dependencies');
+    }
 
+    /**
+     * Exclude these file globs when loading the module root.
+     */
+    public function exclude(): array
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('exclude');
+        return $this->queryLeaf($leafQueryBuilder, 'exclude');
+    }
 
-	/**
-	 * Exclude these file globs when loading the module root.
-	 */
-	public function exclude(): array
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('exclude');
-		return new \DaggerIo\Gen\array($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * Include only these file globs when loading the module root.
+     */
+    public function include(): array
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('include');
+        return $this->queryLeaf($leafQueryBuilder, 'include');
+    }
 
+    /**
+     * The name of the module.
+     */
+    public function name(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
+        return $this->queryLeaf($leafQueryBuilder, 'name');
+    }
 
-	/**
-	 * Include only these file globs when loading the module root.
-	 */
-	public function include(): array
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('include');
-		return new \DaggerIo\Gen\array($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * The root directory of the module's project, which may be above the module source code.
+     */
+    public function root(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('root');
+        return $this->queryLeaf($leafQueryBuilder, 'root');
+    }
 
-
-	/**
-	 * The name of the module.
-	 */
-	public function name(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
-		return $this->queryLeaf($leafQueryBuilder, 'name');
-	}
-
-
-	/**
-	 * The root directory of the module's project, which may be above the module source code.
-	 */
-	public function root(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('root');
-		return $this->queryLeaf($leafQueryBuilder, 'root');
-	}
-
-
-	/**
-	 * Either the name of a built-in SDK ('go', 'python', etc.) OR a module reference pointing to the SDK's module implementation.
-	 */
-	public function sdk(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('sdk');
-		return $this->queryLeaf($leafQueryBuilder, 'sdk');
-	}
+    /**
+     * Either the name of a built-in SDK ('go', 'python', etc.) OR a module reference pointing to the SDK's module implementation.
+     */
+    public function sdk(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('sdk');
+        return $this->queryLeaf($leafQueryBuilder, 'sdk');
+    }
 }

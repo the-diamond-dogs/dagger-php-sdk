@@ -13,22 +13,21 @@ namespace DaggerIo\Gen;
  */
 class Secret extends \DaggerIo\Client\AbstractDaggerObject implements \DaggerIo\Client\IdAble
 {
-	/**
-	 * The identifier for this secret.
-	 */
-	public function id(): SecretId
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('id');
-		return $this->queryLeafDaggerScalar($leafQueryBuilder, 'id', \DaggerIo\Gen\SecretId::class);
-	}
+    /**
+     * The identifier for this secret.
+     */
+    public function id(): SecretId
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('id');
+        return $this->queryLeafDaggerScalar($leafQueryBuilder, 'id', \DaggerIo\Gen\SecretId::class);
+    }
 
-
-	/**
-	 * The value of this secret.
-	 */
-	public function plaintext(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('plaintext');
-		return $this->queryLeaf($leafQueryBuilder, 'plaintext');
-	}
+    /**
+     * The value of this secret.
+     */
+    public function plaintext(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('plaintext');
+        return $this->queryLeaf($leafQueryBuilder, 'plaintext');
+    }
 }

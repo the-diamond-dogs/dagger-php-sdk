@@ -13,22 +13,21 @@ namespace DaggerIo\Gen;
  */
 class EnvVariable extends \DaggerIo\Client\AbstractDaggerObject
 {
-	/**
-	 * The environment variable name.
-	 */
-	public function name(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
-		return $this->queryLeaf($leafQueryBuilder, 'name');
-	}
+    /**
+     * The environment variable name.
+     */
+    public function name(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
+        return $this->queryLeaf($leafQueryBuilder, 'name');
+    }
 
-
-	/**
-	 * The environment variable value.
-	 */
-	public function value(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('value');
-		return $this->queryLeaf($leafQueryBuilder, 'value');
-	}
+    /**
+     * The environment variable value.
+     */
+    public function value(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('value');
+        return $this->queryLeaf($leafQueryBuilder, 'value');
+    }
 }

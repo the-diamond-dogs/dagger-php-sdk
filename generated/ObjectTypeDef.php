@@ -13,42 +13,39 @@ namespace DaggerIo\Gen;
  */
 class ObjectTypeDef extends \DaggerIo\Client\AbstractDaggerObject
 {
-	/**
-	 * The doc string for the object, if any
-	 */
-	public function description(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('description');
-		return $this->queryLeaf($leafQueryBuilder, 'description');
-	}
+    /**
+     * The doc string for the object, if any
+     */
+    public function description(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('description');
+        return $this->queryLeaf($leafQueryBuilder, 'description');
+    }
 
+    /**
+     * Static fields defined on this object, if any
+     */
+    public function fields(): array
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('fields');
+        return $this->queryLeaf($leafQueryBuilder, 'fields');
+    }
 
-	/**
-	 * Static fields defined on this object, if any
-	 */
-	public function fields(): array
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('fields');
-		return new \DaggerIo\Gen\array($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * Functions defined on this object, if any
+     */
+    public function functions(): array
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('functions');
+        return $this->queryLeaf($leafQueryBuilder, 'functions');
+    }
 
-
-	/**
-	 * Functions defined on this object, if any
-	 */
-	public function functions(): array
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('functions');
-		return new \DaggerIo\Gen\array($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
-
-
-	/**
-	 * The name of the object
-	 */
-	public function name(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
-		return $this->queryLeaf($leafQueryBuilder, 'name');
-	}
+    /**
+     * The name of the object
+     */
+    public function name(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
+        return $this->queryLeaf($leafQueryBuilder, 'name');
+    }
 }

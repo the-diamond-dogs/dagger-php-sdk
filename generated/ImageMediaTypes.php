@@ -13,6 +13,6 @@ namespace DaggerIo\Gen;
  */
 enum ImageMediaTypes: string
 {
-	case DockerMediaTypes = 'DockerMediaTypes';
-	case OCIMediaTypes = 'OCIMediaTypes';
+    case DockerMediaTypes = 'DockerMediaTypes';
+    case OCIMediaTypes = 'OCIMediaTypes';
 }

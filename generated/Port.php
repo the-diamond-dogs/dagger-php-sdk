@@ -13,32 +13,30 @@ namespace DaggerIo\Gen;
  */
 class Port extends \DaggerIo\Client\AbstractDaggerObject
 {
-	/**
-	 * The port description.
-	 */
-	public function description(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('description');
-		return $this->queryLeaf($leafQueryBuilder, 'description');
-	}
+    /**
+     * The port description.
+     */
+    public function description(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('description');
+        return $this->queryLeaf($leafQueryBuilder, 'description');
+    }
 
+    /**
+     * The port number.
+     */
+    public function port(): int
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('port');
+        return $this->queryLeaf($leafQueryBuilder, 'port');
+    }
 
-	/**
-	 * The port number.
-	 */
-	public function port(): int
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('port');
-		return $this->queryLeaf($leafQueryBuilder, 'port');
-	}
-
-
-	/**
-	 * The transport layer network protocol.
-	 */
-	public function protocol(): NetworkProtocol
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('protocol');
-		return new \DaggerIo\Gen\NetworkProtocol($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * The transport layer network protocol.
+     */
+    public function protocol(): NetworkProtocol
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('protocol');
+        return \DaggerIo\Gen\NetworkProtocol::from($this->queryLeaf($leafQueryBuilder, 'protocol'));
+    }
 }

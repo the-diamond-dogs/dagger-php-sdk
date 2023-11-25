@@ -13,9 +13,9 @@ namespace DaggerIo\Gen;
  */
 enum NetworkProtocol: string
 {
-	/** TCP (Transmission Control Protocol) */
-	case TCP = 'TCP';
+    /** TCP (Transmission Control Protocol) */
+    case TCP = 'TCP';
 
-	/** UDP (User Datagram Protocol) */
-	case UDP = 'UDP';
+    /** UDP (User Datagram Protocol) */
+    case UDP = 'UDP';
 }

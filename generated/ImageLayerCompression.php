@@ -13,8 +13,8 @@ namespace DaggerIo\Gen;
  */
 enum ImageLayerCompression: string
 {
-	case EStarGZ = 'EStarGZ';
-	case Gzip = 'Gzip';
-	case Uncompressed = 'Uncompressed';
-	case Zstd = 'Zstd';
+    case EStarGZ = 'EStarGZ';
+    case Gzip = 'Gzip';
+    case Uncompressed = 'Uncompressed';
+    case Zstd = 'Zstd';
 }

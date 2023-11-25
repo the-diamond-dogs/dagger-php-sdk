@@ -15,32 +15,30 @@ namespace DaggerIo\Gen;
  */
 class FieldTypeDef extends \DaggerIo\Client\AbstractDaggerObject
 {
-	/**
-	 * A doc string for the field, if any
-	 */
-	public function description(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('description');
-		return $this->queryLeaf($leafQueryBuilder, 'description');
-	}
+    /**
+     * A doc string for the field, if any
+     */
+    public function description(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('description');
+        return $this->queryLeaf($leafQueryBuilder, 'description');
+    }
 
+    /**
+     * The name of the field in the object
+     */
+    public function name(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
+        return $this->queryLeaf($leafQueryBuilder, 'name');
+    }
 
-	/**
-	 * The name of the field in the object
-	 */
-	public function name(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
-		return $this->queryLeaf($leafQueryBuilder, 'name');
-	}
-
-
-	/**
-	 * The type of the field
-	 */
-	public function typeDef(): TypeDef
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('typeDef');
-		return new \DaggerIo\Gen\TypeDef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * The type of the field
+     */
+    public function typeDef(): TypeDef
+    {
+        $innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('typeDef');
+        return new \DaggerIo\Gen\TypeDef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
+    }
 }

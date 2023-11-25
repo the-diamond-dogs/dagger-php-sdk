@@ -13,9 +13,9 @@ namespace DaggerIo\Gen;
  */
 class CacheVolume extends \DaggerIo\Client\AbstractDaggerObject implements \DaggerIo\Client\IdAble
 {
-	public function id(): CacheVolumeId
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('id');
-		return $this->queryLeafDaggerScalar($leafQueryBuilder, 'id', \DaggerIo\Gen\CacheVolumeId::class);
-	}
+    public function id(): CacheVolumeId
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('id');
+        return $this->queryLeafDaggerScalar($leafQueryBuilder, 'id', \DaggerIo\Gen\CacheVolumeId::class);
+    }
 }

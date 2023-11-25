@@ -10,12 +10,12 @@ namespace DaggerIo\Gen;
 
 class Socket extends \DaggerIo\Client\AbstractDaggerObject implements \DaggerIo\Client\IdAble
 {
-	/**
-	 * The content-addressed identifier of the socket.
-	 */
-	public function id(): SocketId
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('id');
-		return $this->queryLeafDaggerScalar($leafQueryBuilder, 'id', \DaggerIo\Gen\SocketId::class);
-	}
+    /**
+     * The content-addressed identifier of the socket.
+     */
+    public function id(): SocketId
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('id');
+        return $this->queryLeafDaggerScalar($leafQueryBuilder, 'id', \DaggerIo\Gen\SocketId::class);
+    }
 }

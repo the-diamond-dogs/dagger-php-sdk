@@ -16,86 +16,80 @@ namespace DaggerIo\Gen;
  */
 class DaggerFunction extends \DaggerIo\Client\AbstractDaggerObject implements \DaggerIo\Client\IdAble
 {
-	/**
-	 * Arguments accepted by this function, if any
-	 */
-	public function args(): array
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('args');
-		return new \DaggerIo\Gen\array($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * Arguments accepted by this function, if any
+     */
+    public function args(): array
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('args');
+        return $this->queryLeaf($leafQueryBuilder, 'args');
+    }
 
+    /**
+     * A doc string for the function, if any
+     */
+    public function description(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('description');
+        return $this->queryLeaf($leafQueryBuilder, 'description');
+    }
 
-	/**
-	 * A doc string for the function, if any
-	 */
-	public function description(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('description');
-		return $this->queryLeaf($leafQueryBuilder, 'description');
-	}
+    /**
+     * The ID of the function
+     */
+    public function id(): FunctionId
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('id');
+        return $this->queryLeafDaggerScalar($leafQueryBuilder, 'id', \DaggerIo\Gen\FunctionId::class);
+    }
 
+    /**
+     * The name of the function
+     */
+    public function name(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
+        return $this->queryLeaf($leafQueryBuilder, 'name');
+    }
 
-	/**
-	 * The ID of the function
-	 */
-	public function id(): FunctionId
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('id');
-		return $this->queryLeafDaggerScalar($leafQueryBuilder, 'id', \DaggerIo\Gen\FunctionId::class);
-	}
+    /**
+     * The type returned by this function
+     */
+    public function returnType(): TypeDef
+    {
+        $innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('returnType');
+        return new \DaggerIo\Gen\TypeDef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
+    }
 
+    /**
+     * Returns the function with the provided argument
+     */
+    public function withArg(
+        string $name,
+        TypeDefId|TypeDef $typeDef,
+        ?string $description = null,
+        ?Json $defaultValue = null,
+    ): DaggerFunction
+    {
+        $innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('withArg');
+        $innerQueryBuilder->setArgument('name', $name);
+        $innerQueryBuilder->setArgument('typeDef', $typeDef);
+        if (null !== $description) {
+        $innerQueryBuilder->setArgument('description', $description);
+        }
+        if (null !== $defaultValue) {
+        $innerQueryBuilder->setArgument('defaultValue', $defaultValue);
+        }
+        return new \DaggerIo\Gen\DaggerFunction($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
+    }
 
-	/**
-	 * The name of the function
-	 */
-	public function name(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
-		return $this->queryLeaf($leafQueryBuilder, 'name');
-	}
-
-
-	/**
-	 * The type returned by this function
-	 */
-	public function returnType(): TypeDef
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('returnType');
-		return new \DaggerIo\Gen\TypeDef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
-
-
-	/**
-	 * Returns the function with the provided argument
-	 */
-	public function withArg(
-		string $name,
-		TypeDefId|TypeDef $typeDef,
-		?string $description = null,
-		?Json $defaultValue = null,
-	): DaggerFunction
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('withArg');
-		$innerQueryBuilder->setArgument('name', $name);
-		$innerQueryBuilder->setArgument('typeDef', $typeDef);
-		if (null !== $description) {
-		$innerQueryBuilder->setArgument('description', $description);
-		}
-		if (null !== $defaultValue) {
-		$innerQueryBuilder->setArgument('defaultValue', $defaultValue);
-		}
-		return new \DaggerIo\Gen\DaggerFunction($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
-
-
-	/**
-	 * Returns the function with the doc string
-	 */
-	public function withDescription(string $description): DaggerFunction
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('withDescription');
-		$innerQueryBuilder->setArgument('description', $description);
-		return new \DaggerIo\Gen\DaggerFunction($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * Returns the function with the doc string
+     */
+    public function withDescription(string $description): DaggerFunction
+    {
+        $innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('withDescription');
+        $innerQueryBuilder->setArgument('description', $description);
+        return new \DaggerIo\Gen\DaggerFunction($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
+    }
 }

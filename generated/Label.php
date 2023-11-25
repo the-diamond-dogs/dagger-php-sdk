@@ -13,22 +13,21 @@ namespace DaggerIo\Gen;
  */
 class Label extends \DaggerIo\Client\AbstractDaggerObject
 {
-	/**
-	 * The label name.
-	 */
-	public function name(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
-		return $this->queryLeaf($leafQueryBuilder, 'name');
-	}
+    /**
+     * The label name.
+     */
+    public function name(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
+        return $this->queryLeaf($leafQueryBuilder, 'name');
+    }
 
-
-	/**
-	 * The label value.
-	 */
-	public function value(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('value');
-		return $this->queryLeaf($leafQueryBuilder, 'value');
-	}
+    /**
+     * The label value.
+     */
+    public function value(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('value');
+        return $this->queryLeaf($leafQueryBuilder, 'value');
+    }
 }

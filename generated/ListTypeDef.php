@@ -13,12 +13,12 @@ namespace DaggerIo\Gen;
  */
 class ListTypeDef extends \DaggerIo\Client\AbstractDaggerObject
 {
-	/**
-	 * The type of the elements in the list
-	 */
-	public function elementTypeDef(): TypeDef
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('elementTypeDef');
-		return new \DaggerIo\Gen\TypeDef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * The type of the elements in the list
+     */
+    public function elementTypeDef(): TypeDef
+    {
+        $innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('elementTypeDef');
+        return new \DaggerIo\Gen\TypeDef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
+    }
 }

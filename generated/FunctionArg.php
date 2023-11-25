@@ -16,52 +16,48 @@ namespace DaggerIo\Gen;
  */
 class FunctionArg extends \DaggerIo\Client\AbstractDaggerObject implements \DaggerIo\Client\IdAble
 {
-	/**
-	 * A default value to use for this argument when not explicitly set by the caller, if any
-	 */
-	public function defaultValue(): Json
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('defaultValue');
-		return $this->queryLeafDaggerScalar($leafQueryBuilder, 'defaultValue', \DaggerIo\Gen\Json::class);
-	}
+    /**
+     * A default value to use for this argument when not explicitly set by the caller, if any
+     */
+    public function defaultValue(): Json
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('defaultValue');
+        return $this->queryLeafDaggerScalar($leafQueryBuilder, 'defaultValue', \DaggerIo\Gen\Json::class);
+    }
 
+    /**
+     * A doc string for the argument, if any
+     */
+    public function description(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('description');
+        return $this->queryLeaf($leafQueryBuilder, 'description');
+    }
 
-	/**
-	 * A doc string for the argument, if any
-	 */
-	public function description(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('description');
-		return $this->queryLeaf($leafQueryBuilder, 'description');
-	}
+    /**
+     * The ID of the argument
+     */
+    public function id(): FunctionArgId
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('id');
+        return $this->queryLeafDaggerScalar($leafQueryBuilder, 'id', \DaggerIo\Gen\FunctionArgId::class);
+    }
 
+    /**
+     * The name of the argument
+     */
+    public function name(): string
+    {
+        $leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
+        return $this->queryLeaf($leafQueryBuilder, 'name');
+    }
 
-	/**
-	 * The ID of the argument
-	 */
-	public function id(): FunctionArgId
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('id');
-		return $this->queryLeafDaggerScalar($leafQueryBuilder, 'id', \DaggerIo\Gen\FunctionArgId::class);
-	}
-
-
-	/**
-	 * The name of the argument
-	 */
-	public function name(): string
-	{
-		$leafQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('name');
-		return $this->queryLeaf($leafQueryBuilder, 'name');
-	}
-
-
-	/**
-	 * The type of the argument
-	 */
-	public function typeDef(): TypeDef
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('typeDef');
-		return new \DaggerIo\Gen\TypeDef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * The type of the argument
+     */
+    public function typeDef(): TypeDef
+    {
+        $innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('typeDef');
+        return new \DaggerIo\Gen\TypeDef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
+    }
 }

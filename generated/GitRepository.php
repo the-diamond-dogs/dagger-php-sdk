@@ -13,35 +13,33 @@ namespace DaggerIo\Gen;
  */
 class GitRepository extends \DaggerIo\Client\AbstractDaggerObject
 {
-	/**
-	 * Returns details on one branch.
-	 */
-	public function branch(string $name): GitRef
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('branch');
-		$innerQueryBuilder->setArgument('name', $name);
-		return new \DaggerIo\Gen\GitRef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * Returns details on one branch.
+     */
+    public function branch(string $name): GitRef
+    {
+        $innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('branch');
+        $innerQueryBuilder->setArgument('name', $name);
+        return new \DaggerIo\Gen\GitRef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
+    }
 
+    /**
+     * Returns details on one commit.
+     */
+    public function commit(string $id): GitRef
+    {
+        $innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('commit');
+        $innerQueryBuilder->setArgument('id', $id);
+        return new \DaggerIo\Gen\GitRef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
+    }
 
-	/**
-	 * Returns details on one commit.
-	 */
-	public function commit(string $id): GitRef
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('commit');
-		$innerQueryBuilder->setArgument('id', $id);
-		return new \DaggerIo\Gen\GitRef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
-
-
-	/**
-	 * Returns details on one tag.
-	 */
-	public function tag(string $name): GitRef
-	{
-		$innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('tag');
-		$innerQueryBuilder->setArgument('name', $name);
-		return new \DaggerIo\Gen\GitRef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
-	}
+    /**
+     * Returns details on one tag.
+     */
+    public function tag(string $name): GitRef
+    {
+        $innerQueryBuilder = new \DaggerIo\Client\DaggerQueryBuilder('tag');
+        $innerQueryBuilder->setArgument('name', $name);
+        return new \DaggerIo\Gen\GitRef($this->client, $this->queryBuilderChain->chain($innerQueryBuilder));
+    }
 }

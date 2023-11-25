@@ -13,10 +13,10 @@ namespace DaggerIo\Gen;
  */
 class PortForward extends \DaggerIo\Client\AbstractDaggerInputObject
 {
-	public function __construct(
-		public int $backend,
-		public ?int $frontend,
-		public ?\NetworkProtocol $protocol,
-	) {
-	}
+    public function __construct(
+        public int $backend,
+        public ?int $frontend,
+        public ?\NetworkProtocol $protocol,
+    ) {
+    }
 }
